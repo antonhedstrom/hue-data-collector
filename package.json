@@ -1,0 +1,24 @@
+{
+  "name": "hue-data-collector",
+  "version": "0.0.1",
+  "description": "Collection data from your Philips Hue Bridge and store in DB. Data can then be plotted in a Graph.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "philips",
+    "hue",
+    "bridge",
+    "collect",
+    "data",
+    "statistics"
+  ],
+  "author": "Anton Hedström",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^4.17.0",
+    "eslint-plugin-react": "^7.6.1"
+  }
+}
