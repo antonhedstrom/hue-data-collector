@@ -4,6 +4,8 @@
   "description": "Collection data from your Philips Hue Bridge and store in DB. Data can then be plotted in a Graph.",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
+    "start:dev": "mkdir -p ./data && (mongod --dbpath=./data & node index.js)",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -16,7 +18,13 @@
   ],
   "author": "Anton Hedström",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "chalk": "^2.3.0",
+    "dotenv": "^5.0.0",
+    "mongodb": "^3.0.2",
+    "node-hue-api": "^2.4.2",
+    "node-schedule": "^1.3.0"
+  },
   "devDependencies": {
     "eslint": "^4.17.0",
     "eslint-plugin-react": "^7.6.1"
