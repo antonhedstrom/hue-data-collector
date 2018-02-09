@@ -14,7 +14,7 @@ mongoDbClient(config.MONGODB_CONNECTIONSTRING).then((dbClient) => {
   const database = dbClient.db(config.MONGODB_NAME);
   const userCollection = database.collection('users');
 
-  hueClient(config.BRIDGE_IP, userCollection).then((hueApi) => {
+  hueClient(config.HUE_BRIDGE_IP, userCollection).then((hueApi) => {
     // *    *    *    *    *    *
     // ┬    ┬    ┬    ┬    ┬    ┬
     // │    │    │    │    │    │
