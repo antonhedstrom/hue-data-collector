@@ -26,8 +26,8 @@ mongoDbClient(config.MONGODB_CONNECTIONSTRING).then((dbClient) => {
     // └───────────────────────── second(0 - 59, OPTIONAL)
     schedule.scheduleJob('* */30 * * * *', actions.syncLightsInfo(hueApi, database));
     schedule.scheduleJob('* */5 * * * *', actions.syncLightsData(hueApi, database));
-    // schedule.scheduleJob('* */30 * * * *', actions.syncSensorsInfo(hueApi, database));
-    // schedule.scheduleJob('* */5 * * * *', actions.syncSensorsData(hueApi, database));
+    schedule.scheduleJob('* */30 * * * *', actions.syncSensorsInfo(hueApi, database));
+    schedule.scheduleJob('* */5 * * * *', actions.syncSensorsData(hueApi, database));
 
   }).catch(error => {
     console.log(chalk.red(error.stack));
