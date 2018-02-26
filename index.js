@@ -4,9 +4,9 @@ require('dotenv').config();
 const schedule = require('node-schedule');
 const chalk = require('chalk');
 
-const mongoDbClient = require('./mongodb-client');
-const hueClient = require('./hue-client');
-const actions = require('./scheduled-actions');
+const mongoDbClient = require('./lib/mongodb-client');
+const hueClient = require('./lib/hue-client');
+const actions = require('./lib/scheduled-actions');
 
 const config = require('./config');
 
@@ -24,8 +24,10 @@ mongoDbClient(config.MONGODB_CONNECTIONSTRING).then((dbClient) => {
     // │    │    └─────────────── hour(0 - 23)
     // │    └──────────────────── minute(0 - 59)
     // └───────────────────────── second(0 - 59, OPTIONAL)
-    schedule.scheduleJob('* */30 * * * *', actions.syncDevicesInfo(hueApi, database));
-    schedule.scheduleJob('* */5 * * * *', actions.syncStates(hueApi, database));
+    schedule.scheduleJob('* */30 * * * *', actions.syncLightsInfo(hueApi, database));
+    schedule.scheduleJob('* */5 * * * *', actions.syncLightsData(hueApi, database));
+    // schedule.scheduleJob('* */30 * * * *', actions.syncSensorsInfo(hueApi, database));
+    // schedule.scheduleJob('* */5 * * * *', actions.syncSensorsData(hueApi, database));
 
   }).catch(error => {
     console.log(chalk.red(error.stack));
