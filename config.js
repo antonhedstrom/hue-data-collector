@@ -12,4 +12,5 @@ module.exports = {
   MONGODB_CONNECTIONSTRING: process.env.MONGODB_CONNECTIONSTRING,
   MONGODB_NAME: process.env.MONGODB_NAME || 'hue-lights-data',
   HUE_BRIDGE_IP: process.env.HUE_BRIDGE_IP,
+  HUE_USERNAME: process.env.HUE_USERNAME,
 };
