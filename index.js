@@ -29,6 +29,10 @@ mongoDbClient(config.MONGODB_CONNECTIONSTRING).then((dbClient) => {
     schedule.scheduleJob('* */30 * * * *', actions.syncSensorsInfo(hueApi, database));
     schedule.scheduleJob('* */5 * * * *', actions.syncSensorsData(hueApi, database));
 
+    // Sync device data upon start
+    actions.syncLightsInfo(hueApi, database);
+    actions.syncSensorsInfo(hueApi, database);
+
   }).catch(error => {
     console.log(chalk.red(error.stack));
     // Since we failed lets clear user table and let user auth again.
