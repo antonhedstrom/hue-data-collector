@@ -13,4 +13,6 @@ module.exports = {
   MONGODB_NAME: process.env.MONGODB_NAME || 'hue-lights-data',
   HUE_BRIDGE_IP: process.env.HUE_BRIDGE_IP,
   HUE_USERNAME: process.env.HUE_USERNAME,
+  MQTT_SERVER: process.env.MQTT_SERVER || 'mqtt//192.168.1.210:1883',
+  MQTT_CHANNEL: 'nodemcu/tvbank/temp',
 };
